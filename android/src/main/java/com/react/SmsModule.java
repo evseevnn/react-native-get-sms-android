@@ -101,9 +101,9 @@ public class SmsModule extends ReactContextBaseJavaModule /*implements LoaderMan
                 if (fContentRegex != null && !fContentRegex.isEmpty())
                     matchFilter = matchFilter && cursor.getString(cursor.getColumnIndex("body")).matches(fContentRegex);
                 if (maxDate > -1)
-                    matchFilter = matchFilter && maxDate >= cursor.getLong(cursor.getColumnIndex("date"));
+                    matchFilter = matchFilter && maxDate >= cursor.getLong(cursor.getColumnIndex("date_sent"));
                 if (minDate > -1)
-                    matchFilter = matchFilter && minDate <= cursor.getLong(cursor.getColumnIndex("date"));
+                    matchFilter = matchFilter && minDate <= cursor.getLong(cursor.getColumnIndex("date_sent"));
                 if (matchFilter) {
                     if (c >= indexFrom) {
                         if (maxCount > 0 && c >= indexFrom + maxCount)
